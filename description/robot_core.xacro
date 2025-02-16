@@ -1,152 +1,372 @@
-<?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Robot urdf test 2">
+  
+<scale>1000 1000 1000</scale>
 
-<xacro:include filename="inertial_macros.xacro"/>
-
-    <material name="white"> 
-        <color rgba="1 1 1 1"/>
-    </material> 
-
-    <material name="orange"> 
-        <color rgba="1 0.3 0.1 1"/> 
-    </material> 
-
-    <material name="blue"> 
-        <color rgba="0.2 0.2 1 1"/> 
-    </material> 
-
-    <material name="black"> 
-        <color rgba="0 0 0 1"/> 
-    </material>
-
-    <!-- BASE LINK -->
-
-    <link name="base_link"/>
-
-    <gazebo reference="base_link">
-        <material>Gazebo/White</material>
-    </gazebo>
-
-    <!-- CHASSIS LINK -->
-
-    <joint name="chassis_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="chassis"/>  
-        <origin xyz="-0.1 0 0"/>
-    </joint> 
-
-    <link name="chassis">
-        <visual>
-            <geometry>
-                <box size="0.3 0.3 0.15"/>
-            </geometry>
-            <material name="orange"/>
-            <origin xyz="0.15 0 0.075"/>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="0.3 0.3 0.15"/>
-            </geometry>
-            <origin xyz="0.15 0 0.075"/>
-        </collision>
-        <xacro:inertial_box mass="0.5" x="0.3" y="0.3" z="0.15">
-            <origin xyz="0.15 0 0.075" rpy="0 0 0"/>
-        </xacro:inertial_box>
-    </link>
-    
-    <gazebo reference="chassis">
-        <material>Gazebo/Orange</material>
-    </gazebo>
-
-    <!-- LEFT WHEEL LINK -->
-
-    <joint name="left_wheel_joint" type="continuous">
-        <parent link="base_link"/>
-        <child link="left_wheel"/>
-        <origin xyz=" 0 0.175 0" rpy="-${pi/2} 0 0"/>
-        <axis xyz="0 0 1"/>
-    </joint>
-
-    <link name="left_wheel">
-        <visual>
-            <geometry>
-                <cylinder radius="0.05" length="0.04" />
-            </geometry>
-            <material name="blue"/>
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder radius="0.05" length="0.04" />
-            </geometry>
-        </collision>
-        <xacro:inertial_cylinder mass="0.1" length="0.04" radius="0.05">
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-        </xacro:inertial_cylinder>
-    </link>
-    
-    <gazebo reference="left_wheel">
-        <material>Gazebo/Blue</material>
-    </gazebo>
-
-    <!-- RIGHT WHEEL LINK -->
-
-    <joint name="right_wheel_joint" type="continuous">
-        <parent link="base_link"/>
-        <child link="right_wheel"/>
-        <origin xyz=" 0 -0.175 0" rpy="${pi/2} 0 0"/>
-        <axis xyz="0 0 -1"/>
-    </joint>
-
-    <link name="right_wheel">
-        <visual>
-            <geometry>
-                <cylinder radius="0.05" length="0.04"/>
-            </geometry>
-            <material name="blue"/>
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder radius="0.05" length="0.04"/>
-            </geometry>
-        </collision>
-        <xacro:inertial_cylinder mass="0.1" length="0.04" radius="0.05">
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-        </xacro:inertial_cylinder>
-    </link>
-    
-    <gazebo reference="right_wheel">
-        <material>Gazebo/Blue</material>
-    </gazebo>
-
-    <!-- CASTER WHEEL LINK -->
-
-    <joint name="caster_wheel_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="caster_wheel"/>
-        <origin xyz=" 0.24 0 0"/>
-    </joint>
-
-    <link name="caster_wheel">
-        <visual>
-            <geometry>
-                <sphere radius="0.05"/>
-            </geometry>
-            <material name="black"/>
-        </visual>
-        <collision>
-            <geometry>
-                <sphere radius="0.05"/>
-            </geometry>
-        </collision>
-        <xacro:inertial_sphere mass="0.1" radius="0.05">
-            <origin xyz="0  0 0" rpy="0 0 0"/>
-        </xacro:inertial_sphere>
-    </link>
-    
-    <gazebo reference="caster_wheel">
-        <material>Gazebo/Black</material>
-        <mu1 value="0.001"/>
-        <mu2 value="0.001"/>
-    </gazebo>
-
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0703969850666513 -0.00708768827579139 0.0186223619832774"
+        rpy="0 0 0" />
+      <mass
+        value="0.635058861007032" />
+      <inertia
+        ixx="0.00130880553835921"
+        ixy="1.93900080270645E-05"
+        ixz="1.78578176076182E-05"
+        iyy="0.00193456341123729"
+        iyz="7.68587694424632E-05"
+        izz="0.00313908833953151" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="0 0.0125 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.10164" />
+      <inertia
+        ixx="3.2133E-05"
+        ixy="-1.5524E-21"
+        ixz="-3.3881E-21"
+        iyy="5.3678E-05"
+        iyz="1.4454E-21"
+        izz="3.2133E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.11067 0.021"
+      rpy="0 0.46017 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="0 0.0125 -6.9389E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.10164" />
+      <inertia
+        ixx="3.2133E-05"
+        ixy="-1.5541E-21"
+        ixz="0"
+        iyy="5.3678E-05"
+        iyz="-9.6195E-22"
+        izz="3.2133E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package:my_bot/description/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.11067 0.021"
+      rpy="3.1416 0.46017 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="laser_frame">
+    <inertial>
+      <origin
+        xyz="-0.0067665 9.1926E-05 -0.0083819"
+        rpy="0 0 0" />
+      <mass
+        value="0.17402" />
+      <inertia
+        ixx="8.0412E-05"
+        ixy="-1.0487E-07"
+        ixz="-2.0693E-05"
+        iyy="0.00012563"
+        iyz="4.0429E-07"
+        izz="0.0001436" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/laser_frame.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/laser_frame.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="laser_joint"
+    type="fixed">
+    <origin
+      xyz="0.1048 0 0.091825"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="laser_frame" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="camera_link">
+    <inertial>
+      <origin
+        xyz="-0.010597 -1.8404E-05 0.0029121"
+        rpy="0 0 0" />
+      <mass
+        value="0.0057972" />
+      <inertia
+        ixx="6.4641E-07"
+        ixy="3.883E-13"
+        ixz="-1.0375E-09"
+        iyy="2.7217E-07"
+        iyz="2.3413E-10"
+        izz="3.8601E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/camera_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/camera_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera_joint"
+    type="fixed">
+    <origin
+      xyz="0.16129 0 0.0264"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="right_caster_wheel">
+    <inertial>
+      <origin
+        xyz="0.0082558 0.0051328 -0.0024039"
+        rpy="0 0 0" />
+      <mass
+        value="0.0083657" />
+      <inertia
+        ixx="1.3493E-07"
+        ixy="-3.3087E-24"
+        ixz="-1.6544E-24"
+        iyy="1.3493E-07"
+        iyz="0"
+        izz="1.3493E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/right_caster_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.52941 0.54902 0.54902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/right_caster_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_caster_wheel_joint"
+    type="fixed">
+    <origin
+      xyz="0.18465 -0.017204 -0.00515"
+      rpy="-0.084672 -0.33017 -2.0834" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_caster_wheel" />
+    <axis
+      xyz="0 0 0" />
+    <dynamics
+      friction="0.001" />
+  </joint>
+  <link
+    name="left_caster_wheel">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/left_caster_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_bot/description/meshes/left_caster_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_caster_wheel_joint"
+    type="fixed">
+    <origin
+      xyz="0.18465 0.019095 -0.00515"
+      rpy="-0.31325 0.74226 -0.39241" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_caster_wheel" />
+    <axis
+      xyz="0 0 0" />
+    <dynamics
+      friction="0.001" />
+  </joint>
 </robot>
