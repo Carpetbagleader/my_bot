@@ -2,7 +2,7 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot name="Assem 2">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   
   <!-- BASE LINK -->
 
@@ -45,6 +45,10 @@
           </geometry>
     </collision>
   </link>
+  
+  <gazebo reference="base_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
 
  <!-- LEFT WHEEL LINK -->
  
@@ -87,6 +91,10 @@
           </geometry>
     </collision>
   </link>
+
+  <gazebo reference="left_wheel">
+    <material>Gazebo/Blue</material>
+  </gazebo>
 
 
   <joint name="left_wheel_joint" type="continuous">
@@ -144,6 +152,12 @@
       </geometry>
     </collision>
   </link>
+  
+  <gazebo reference="right_wheel">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+
   <joint
     name="right_wheel_joint"
     type="continuous">
@@ -200,6 +214,11 @@
       </geometry>
     </collision>
   </link>
+
+  <gazebo reference="laser_frame">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
   <joint
     name="laser_joint"
     type="fixed">
@@ -258,6 +277,11 @@
       </geometry>
     </collision>
   </link>
+
+  <gazebo reference="camera_link">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
   <joint
     name="camera_joint"
     type="fixed">
@@ -317,6 +341,12 @@
     </collision>
   </link>
   
+  <gazebo reference="caster_wheel">
+    <material>Gazebo/White</material>
+    <mu1 value="0.001"/>
+    <mu2 value="0.001"/>
+  </gazebo>
+
   <joint
     name="caster_wheel_joint"
     type="fixed">
