@@ -1,335 +1,154 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot name="Assem 2">
-  
-  <!-- BASE LINK -->
-
-  <link name="base_link">
-   <inertial>
-          <origin
-            xyz="0.067406 0.0019312 0.021326"
-            rpy="0 0 0" />
-          <mass
-            value="0.59569" />
-          <inertia
-            ixx="0.0017912"
-            ixy="7.7075E-05"
-            ixz="0.00031985"
-            iyy="0.0029313"
-            iyz="2.4441E-05"
-            izz="0.0041728" />
-   </inertial>
-   <visual>
-          <origin
-            xyz="0 0 0"
-            rpy="0 0 0" />
-          <geometry>
-            <mesh
-              filename="package://my_bot/description/meshes/base_link.STL" />
-          </geometry>
-          <material
-            name="">
-            <color
-              rgba="0.25098 0.25098 0.25098 1" />
-          </material>
-    </visual>
-    <collision>
-          <origin
-            xyz="0 0 0"
-            rpy="0 0 0" />
-          <geometry>
-            <mesh
-              filename="package://my_bot/description/meshes/base_link.STL" />
-          </geometry>
-    </collision>
-  </link>
-
- <!-- LEFT WHEEL LINK -->
- 
-  <link name="left_wheel">
-    <inertial>
-          <origin
-            xyz="0 0 -1.3878E-17"
-            rpy="0 0 0" />
-          <mass
-            value="0.10164" />
-          <inertia
-            ixx="3.2133E-05"
-            ixy="3.0279E-19"
-            ixz="3.0269E-21"
-            iyy="5.3678E-05"
-            iyz="-4.2598E-21"
-            izz="3.2133E-05" />
-    </inertial>
-    <visual>
-          <origin
-            xyz="0 0 0"
-            rpy="0 0 0" />
-          <geometry>
-            <mesh
-              filename="package://my_bot/description/meshes/left_wheel.STL" />
-          </geometry>
-          <material
-            name="">
-            <color
-              rgba="0 0 0.50196 1" />
-          </material>
-    </visual>
-    <collision>
-          <origin
-            xyz="0 0 0"
-            rpy="0 0 0" />
-          <geometry>
-            <mesh
-              filename="package://my_bot/description/meshes/left_wheel.STL" />
-          </geometry>
-    </collision>
-  </link>
-
-
-  <joint name="left_wheel_joint" type="continuous">
-    <origin
-      xyz="0.001 0.13017 0.0235"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="left_wheel" />
-    <axis
-      xyz="0 1 0" />
-  </joint>
-
-
-<!-- RIGHT WHEEL LINK -->
-
-  <link
-    name="right_wheel">
-    <inertial>
-      <origin
-        xyz="6.9389E-18 0 0"
-        rpy="0 0 0" />
-      <mass
-        value="0.10164" />
-      <inertia
-        ixx="3.2133E-05"
-        ixy="-8.6646E-22"
-        ixz="2.1621E-21"
-        iyy="5.3678E-05"
-        iyz="4.6922E-21"
-        izz="3.2133E-05" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://my_bot/description/meshes/right_wheel.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0 0 0.50196 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://my_bot/description/meshes/right_wheel.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="right_wheel_joint"
-    type="continuous">
-    <origin
-      xyz="0.001 -0.13017 0.0235"
-      rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="right_wheel" />
-    <axis
-      xyz="0 1 0" />
-  </joint>
-
-
-<!-- LIDAR LINK-->
-
-
-  <link
-    name="laser_frame">
-    <inertial>
-      <origin
-        xyz="-0.0067665 9.1926E-05 -0.0083819"
-        rpy="0 0 0" />
-      <mass
-        value="0.17402" />
-      <inertia
-        ixx="8.0412E-05"
-        ixy="-1.0487E-07"
-        ixz="-2.0693E-05"
-        iyy="0.00012563"
-        iyz="4.0429E-07"
-        izz="0.0001436" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://my_bot/description/meshes/laser_frame.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="1 1 1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://my_bot/description/meshes/laser_frame.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="laser_joint"
-    type="fixed">
-    <origin
-      xyz="0.1048 0 0.091825"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="laser_frame" />
-    <axis
-      xyz="0 0 0" />
-  </joint>
-
-
-<!-- CAMERA LINK-->
-
-
-  <link
-    name="camera_link">
-    <inertial>
-      <origin
-        xyz="-0.010597 -1.8404E-05 0.0029121"
-        rpy="0 0 0" />
-      <mass
-        value="0.0057972" />
-      <inertia
-        ixx="6.4641E-07"
-        ixy="3.883E-13"
-        ixz="-1.0375E-09"
-        iyy="2.7217E-07"
-        iyz="2.3413E-10"
-        izz="3.8601E-07" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://my_bot/description/meshes/camera_link.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.25098 0.25098 0.25098 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://my_bot/description/meshes/camera_link.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="camera_joint"
-    type="fixed">
-    <origin
-      xyz="0.16129 0 0.029575"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="camera_link" />
-    <axis
-      xyz="0 0 0" />
-  </joint>
-
-
-<!--CASTER WHEEL LINK-->
-
-
-  <link
-    name="caster_wheel">
-    <inertial>
-      <origin
-        xyz="0 1.3878E-17 1.3878E-17"
-        rpy="0 0 0" />
-      <mass
-        value="0.0083657" />
-      <inertia
-        ixx="1.3493E-07"
-        ixy="-4.097E-24"
-        ixz="0"
-        iyy="1.3493E-07"
-        iyz="5.9132E-39"
-        izz="1.3493E-07" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://my_bot/description/meshes/caster_wheel.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.52941 0.54902 0.54902 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://my_bot/description/meshes/caster_wheel.STL" />
-      </geometry>
-    </collision>
-  </link>
-  
-  <joint
-    name="caster_wheel_joint"
-    type="fixed">
-    <origin
-      xyz="0.18465 0 -0.00265"
-      rpy="1.5708 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="caster_wheel" />
-    <axis
-      xyz="0 0 0" />
-    <dynamics
-      friction="0.001" />
-  </joint>
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="Assem">
+    <link name="rplidar_main_По-умолчанию">
+        <inertial>
+            <origin xyz="-0.04153328074084977 -0.034908076976191825 0.03526812958776807" rpy="0.0 -0.0 0.0" />
+            <mass value="1.339299707757665" />
+            <inertia ixx="0.0006188597221929368" iyy="0.0009668556516496188" izz="0.0011051914360182581" ixy="-8.071252421172626e-07" iyz="3.111448005611861e-06" ixz="-0.00015925740428234664" />
+        </inertial>
+        <visual name="rplidar_main_По-умолчанию_visual">
+            <origin xyz="-0.049016750624191786 -0.0010208252626294368 -0.012916824130788047" rpy="-3.141592653589793 3.1225022567582534e-17 3.141592653589793" />
+            <geometry>
+                <mesh filename="meshes/rplidar_main_По-умолчанию.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="rplidar_main_По-умолчанию_collision">
+            <origin xyz="-0.049016750624191786 -0.0010208252626294368 -0.012916824130788047" rpy="-3.141592653589793 3.1225022567582534e-17 3.141592653589793" />
+            <geometry>
+                <mesh filename="meshes/rplidar_main_По-умолчанию.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="Caster-Wheel">
+        <inertial>
+            <origin xyz="0.08999999806786084 3.08731786802241e-09 -1.854927553779362e-09" rpy="0.0 -0.0 0.0" />
+            <mass value="0.008419367021437507" />
+            <inertia ixx="1.3579597068875894e-07" iyy="1.3579597068878605e-07" izz="1.3579597068878605e-07" ixy="0.0" iyz="-1.3552527156068805e-20" ixz="0.0" />
+        </inertial>
+        <visual name="Caster-Wheel_visual">
+            <origin xyz="0.08623678097548926 0.04068443996386147 -0.038637690490664366" rpy="3.141592653589793 -3.035766082959413e-18 1.5707963267948966" />
+            <geometry>
+                <mesh filename="meshes/Caster-Wheel.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="Caster-Wheel_collision">
+            <origin xyz="0.08623678097548926 0.04068443996386147 -0.038637690490664366" rpy="3.141592653589793 -3.035766082959413e-18 1.5707963267948966" />
+            <geometry>
+                <mesh filename="meshes/Caster-Wheel.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="Blue-Wheels">
+        <inertial>
+            <origin xyz="4.571557754573519e-09 1.8549276070700672e-09 0.019500003087316968" rpy="0.0 -0.0 0.0" />
+            <mass value="0.6512177959195157" />
+            <inertia ixx="0.0002058797927724657" iyy="0.0002058797927724657" izz="0.0003439243984699903" ixy="-4.3368086899420086e-19" iyz="1.2232744496681935e-18" ixz="4.0660576309368165e-18" />
+        </inertial>
+        <visual name="Blue-Wheels_visual">
+            <origin xyz="4.571558172017376e-09 0.1309168278406404 0.16497082526262663" rpy="3.141592653589793 -1.2686402961170398 -1.2246467991472608e-16" />
+            <geometry>
+                <mesh filename="meshes/Blue-Wheels.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="Blue-Wheels_collision">
+            <origin xyz="4.571558172017376e-09 0.1309168278406404 0.16497082526262663" rpy="3.141592653589793 -1.2686402961170398 -1.2246467991472608e-16" />
+            <geometry>
+                <mesh filename="meshes/Blue-Wheels.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="Base-Plate_Simplified-Box">
+        <inertial>
+            <origin xyz="0.004605737369248436 0.021931162811598667 -0.026848881351487854" rpy="0.0 -0.0 0.0" />
+            <mass value="3.7409488741698054" />
+            <inertia ixx="0.011246398992742435" iyy="0.018408488534026643" izz="0.02620495603985091" ixy="0.00048404388252989517" iyz="0.00015348767561477325" ixz="0.002008664102083953" />
+        </inertial>
+        <visual name="Base-Plate_Simplified-Box_visual">
+            <origin xyz="0.05299994457155578 -0.015795825262629216 -0.03541682413078819" rpy="7.059095485558965e-15 1.8701136533192588e-47 -2.6492256085004303e-33" />
+            <geometry>
+                <mesh filename="meshes/Base-Plate_Simplified-Box.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="Base-Plate_Simplified-Box_collision">
+            <origin xyz="0.05299994457155578 -0.015795825262629216 -0.03541682413078819" rpy="7.059095485558965e-15 1.8701136533192588e-47 -2.6492256085004303e-33" />
+            <geometry>
+                <mesh filename="meshes/Base-Plate_Simplified-Box.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="Blue-Wheels">
+        <inertial>
+            <origin xyz="4.571555676236017e-09 -1.8549276070700672e-09 0.019499996912682355" rpy="0.0 -0.0 0.0" />
+            <mass value="0.6512177959195157" />
+            <inertia ixx="0.0002058797927725342" iyy="0.00020587979277254115" izz="0.0003439243984700458" ixy="6.071532165918826e-18" iyz="5.554133901572849e-17" ixz="7.052880662911614e-18" />
+        </inertial>
+        <visual name="Blue-Wheels_visual">
+            <origin xyz="4.571557745691735e-09 0.1309168241307852 -0.12597082526262704" rpy="-7.145080809959522e-15 1.268640296117056 -3.141592653589793" />
+            <geometry>
+                <mesh filename="meshes/Blue-Wheels.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="Blue-Wheels_collision">
+            <origin xyz="4.571557745691735e-09 0.1309168241307852 -0.12597082526262704" rpy="-7.145080809959522e-15 1.268640296117056 -3.141592653589793" />
+            <geometry>
+                <mesh filename="meshes/Blue-Wheels.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="Pi-Cam-Base-Mount">
+        <inertial>
+            <origin xyz="-0.007687940983207966 -0.014531592994711922 0.004223924224736351" rpy="0.0 -0.0 0.0" />
+            <mass value="0.03640662817849758" />
+            <inertia ixx="2.8955055742639233e-06" iyy="2.610178586038214e-06" izz="4.5955050107712985e-06" ixy="-4.402339615517271e-09" iyz="-1.41166416815601e-09" ixz="2.126344043364408e-07" />
+        </inertial>
+        <visual name="Pi-Cam-Base-Mount_visual">
+            <origin xyz="-0.019186173172427098 -0.014269388274645448 -0.005308588577329481" rpy="4.1561583797382274e-16 3.7217542573224357e-16 3.141592653589793" />
+            <geometry>
+                <mesh filename="meshes/Pi-Cam-Base-Mount.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="Pi-Cam-Base-Mount_collision">
+            <origin xyz="-0.019186173172427098 -0.014269388274645448 -0.005308588577329481" rpy="4.1561583797382274e-16 3.7217542573224357e-16 3.141592653589793" />
+            <geometry>
+                <mesh filename="meshes/Pi-Cam-Base-Mount.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Base-Plate_Simplified-Box_Rigid-2" type="fixed">
+        <origin xyz="0.08384815 0.005450000000000053 -0.007999999999999972" rpy="3.141592653589793 -1.5707963267948895 0" />
+        <parent link="Base-Plate_Simplified-Box" />
+        <child link="Pi-Cam-Base-Mount" />
+    </joint>
+    <joint name="Base-Plate_Simplified-Box_Revolute-3" type="continuous">
+        <origin xyz="-0.061800060000000025 0.13067500000000018 -0.02467499999999907" rpy="-1.5707963267948892 1.8701136533192588e-47 -2.6492256085004303e-33" />
+        <parent link="Base-Plate_Simplified-Box" />
+        <child link="Blue-Wheels" />
+        <axis xyz="0.0 2.186813770674615e-16 1.0" />
+    </joint>
+    <joint name="Base-Plate_Simplified-Box_Revolute-4" type="continuous">
+        <origin xyz="-0.061800060000000025 -0.09067499999999983 -0.024675000000000634" rpy="1.5707963267949039 1.8701136533192588e-47 -2.6492256085004303e-33" />
+        <parent link="Base-Plate_Simplified-Box" />
+        <child link="Blue-Wheels" />
+        <axis xyz="0.0 2.220446049250312e-16 1.0" />
+    </joint>
+    <joint name="rplidar_main_По-умолчанию_Rigid-5" type="fixed">
+        <origin xyz="-0.07676675 -0.055 0.0" rpy="-7.059095485558965e-15 -0.0 2.649225608499055e-33" />
+        <parent link="rplidar_main_По-умолчанию" />
+        <child link="Base-Plate_Simplified-Box" />
+    </joint>
+    <joint name="Base-Plate_Simplified-Box_Rigid-6" type="fixed">
+        <origin xyz="0.03492404999999996 0.020000000000000337 -0.04817499999999986" rpy="-3.141592653589786 1.8701136533192588e-47 -2.6492256085004303e-33" />
+        <parent link="Base-Plate_Simplified-Box" />
+        <child link="Caster-Wheel" />
+    </joint>
+    <joint name="Lidar-Collision-Model_Rigid-8" type="fixed">
+        <origin xyz="0.08253021449809991 0.15301681441020829 0.12346063999999883" rpy="-6.974252452931318e-15 7.400920180010353e-32 -1.7665839505618303e-17" />
+        <parent link="Lidar-Collision-Model" />
+        <child link="rplidar_main_По-умолчанию" />
+    </joint>
+    <joint name="Pi-Cam-Base-Mount_Rigid-9" type="fixed">
+        <origin xyz="0.008000000000000007 0.0020500000000000006 0.0031750000000000077" rpy="3.141592653589793 -1.5707963267948966 0" />
+        <parent link="Pi-Cam-Base-Mount" />
+        <child link="Pi-Cam-Collision-File" />
+    </joint>
 </robot>
