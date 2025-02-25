@@ -27,7 +27,7 @@
             rpy="0 0 0" />
           <geometry>
             <mesh
-              filename="package://my_bot/description/meshes/base_link.STL" />
+              filename="file://$(find my_bot)/description/meshes/base_link.STL" />
           </geometry>
           <material
             name="">
@@ -41,7 +41,7 @@
             rpy="0 0 0" />
           <geometry>
             <mesh
-              filename="package://my_bot/description/meshes/base_link.STL" />
+              filename="file://$(find my_bot)/description/meshes/base_link.STL" />
           </geometry>
     </collision>
   </link>
@@ -73,7 +73,7 @@
             rpy="0 0 0" />
           <geometry>
             <mesh
-              filename="package://my_bot/description/meshes/left_wheel.STL" />
+              filename="file://$(find my_bot)/description/meshes/left_wheel.STL" />
           </geometry>
           <material
             name="">
@@ -87,7 +87,7 @@
             rpy="0 0 0" />
           <geometry>
             <mesh
-              filename="package://my_bot/description/meshes/left_wheel.STL" />
+              filename="file://$(find my_bot)/description/meshes/left_wheel.STL" />
           </geometry>
     </collision>
   </link>
@@ -134,7 +134,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/description/meshes/right_wheel.STL" />
+          filename="file://$(find my_bot)/description/meshes/right_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -148,7 +148,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/description/meshes/right_wheel.STL" />
+          filename="file://$(find my_bot)/description/meshes/right_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -196,7 +196,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/description/meshes/laser_frame.STL" />
+          filename="file://$(find my_bot)/description/meshes/laser_frame.STL" />
       </geometry>
       <material
         name="">
@@ -210,7 +210,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/description/meshes/laser_frame.STL" />
+          filename="file://$(find my_bot)/description/meshes/laser_frame.STL" />
       </geometry>
     </collision>
   </link>
@@ -259,7 +259,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/description/meshes/camera_link.STL" />
+          filename="file://$(find my_bot)/description/meshes/camera_link.STL" />
       </geometry>
       <material
         name="">
@@ -273,7 +273,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/description/meshes/camera_link.STL" />
+          filename="file://$(find my_bot)/description/meshes/camera_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -322,7 +322,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/description/meshes/caster_wheel.STL" />
+          filename="file://$(find my_bot)/description/meshes/caster_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -336,7 +336,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://my_bot/description/meshes/caster_wheel.STL" />
+          filename="file://$(find my_botgit config --global user.name)/description/meshes/caster_wheel.STL" />
       </geometry>
     </collision>
   </link>
