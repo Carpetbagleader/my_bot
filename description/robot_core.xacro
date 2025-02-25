@@ -336,7 +336,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find my_botgit config --global user.name)/description/meshes/caster_wheel.STL" />
+          filename="file://$(find my_bot)/description/meshes/caster_wheel.STL" />
       </geometry>
     </collision>
   </link>
