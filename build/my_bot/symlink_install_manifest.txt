@@ -3,7 +3,9 @@
 /home/jagroop/dev_ws/install/my_bot/share/my_bot/config/view_bot.rviz
 /home/jagroop/dev_ws/install/my_bot/share/my_bot/description/gazebo_control.xacro
 /home/jagroop/dev_ws/install/my_bot/share/my_bot/description/inertial_macros.xacro
+/home/jagroop/dev_ws/install/my_bot/share/my_bot/description/meshes/Lidar collision.STL
 /home/jagroop/dev_ws/install/my_bot/share/my_bot/description/meshes/base_link.STL
+/home/jagroop/dev_ws/install/my_bot/share/my_bot/description/meshes/camera collision.STL
 /home/jagroop/dev_ws/install/my_bot/share/my_bot/description/meshes/camera_link.STL
 /home/jagroop/dev_ws/install/my_bot/share/my_bot/description/meshes/caster_wheel.STL
 /home/jagroop/dev_ws/install/my_bot/share/my_bot/description/meshes/laser_frame.STL
@@ -15,6 +17,7 @@
 /home/jagroop/dev_ws/install/my_bot/share/my_bot/launch/rsp.launch.py
 /home/jagroop/dev_ws/install/my_bot/share/my_bot/worlds/empty.world
 /home/jagroop/dev_ws/install/my_bot/share/my_bot/worlds/obstacle.world
+/home/jagroop/dev_ws/install/my_bot/share/my_bot/worlds/obstacles.world
 /home/jagroop/dev_ws/install/my_bot/share/ament_index/resource_index/package_run_dependencies/my_bot
 /home/jagroop/dev_ws/install/my_bot/share/ament_index/resource_index/parent_prefix_path/my_bot
 /home/jagroop/dev_ws/install/my_bot/share/my_bot/environment/ament_prefix_path.sh
